@@ -1,5 +1,7 @@
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Account {
@@ -53,10 +55,18 @@ public class Account {
 		return savingBalance;
 	}
 
+	public Map<String, Double> getAllBalances() {
+		Map<String, Double> allBalancesFromAccounts = new HashMap<>();
+		allBalancesFromAccounts.put("Checking Account Balance: ", this.checkingBalance);
+		allBalancesFromAccounts.put("Savings Account Balance: ", this.savingBalance);
+		return allBalancesFromAccounts;
+	}
+
 	public double calcCheckingWithdraw(double amount) {
 		checkingBalance = (checkingBalance - amount);
 		return checkingBalance;
 	}
+
 
 	public double calcSavingWithdraw(double amount) {
 		savingBalance = (savingBalance - amount);
